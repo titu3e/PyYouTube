@@ -1,91 +1,51 @@
 # PyYouTube 
-<p align="center">
-  <a href="https://pypi.org/project/py-youtube">
-    <img src="https://tg-link.herokuapp.com/dl/0/AgADkawxG1bbiVQ.jpg">
-  </a>
-</p>
-</p>
 
-</p>
-<p align="center">
-  <a href="https://github.com/lntechnical2/PyYouTube/stargazers">
-    <img src="https://img.shields.io/github/stars/lntechnical2/PyYouTube?style=social">
 
-  </a>
-  
-  <a href="https://github.com/lntechnical2/PyYouTube/fork">
-    <img src="https://img.shields.io/github/forks/lntechnical2/PyYouTube?label=Fork&style=social">
-
-  </a>  
-</p></p>
-
-<b> Get Video Data from YouTube link </b>
+Get Video Data from YouTube link 
 
 ## Installation 
 ```bash
-pip install py-youtube==1.1.2
+pip install py-youtube
 ```
-
-## Downloads 
-[![Downloads](https://pepy.tech/badge/py-youtube)](https://pepy.tech/project/py-youtube)[![Downloads](https://pepy.tech/badge/py-youtube/month)](https://pepy.tech/project/py-youtube)[![Downloads](https://pepy.tech/badge/py-youtube/week)](https://pepy.tech/project/py-youtube)
 
 ## How to use it ?
 #### Get Videos Data 
 
 ```python
 from py_youtube import Data
-yt = Data("https://youtu.be/HhHzCfrqsoE")
-print(yt.data())
+data = Data("https://youtu.be/HhHzCfrqsoE").data()
+print(data)
 ```
 <details>
   <summary><b>Example Results</summary>
 <br/>
 
 ```json
+
 {
-  "id": "HhHzCfrqsoE",
-  "title": "How To Create MongoDB Database  Url",
-  "thumbnails": "https://i.ytimg.com/vi/HhHzCfrqsoE/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==\\u0026rs=AOn4CLBOkJZAdEpYxQOVdaUxFHdbThH_DQ",
-  "views": "91",
-  "likes": "11",
-  "dislikes": "No",
-  "publishdate": "2021-08-04",
-  "category": "Howto \\u0026 Style",
-  "channel_name": "Ln Technical",
-  "subscriber": "1.15K subscribers"
+  'id': 'HhHzCfrqsoE',
+   'title': 'How To Create MongoDB Database  Url', 
+   'thumbnails': 'https://i.ytimg.com/vi/HhHzCfrqsoE/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==\\u0026rs=AOn4CLBOkJZAdEpYxQOVdaUxFHdbThH_DQ',  
+   'views': '709', 
+   'likes': '27', 
+   'dislikes': '1', 
+   'publishdate': '2021-08-04', 
+   'category': 'Howto \\u0026 Style', 
+   'channel_name': 'Ln Technical', 
+   'subscriber': '1.67K', 
+   'keywords': 'video, sharing, camera phone, video phone, free, upload'
 }
 ```
 
 </details>
 
-#### Get Youtube Url
-  Get video url
-```python
-from py_youtube import ytdl
-video = ytdl("https://youtu.be/7BX0paTfllI")
-print(video.url(itag = '18'))
-```
-  Get formats 
-```python
-from py_youtube import ytdl
-video = ytdl("https://youtu.be/7BX0paTfllI")
-print(video.formats())
-```
-<details>
-  <summary>Example Results</summary>
-<br/>
-  
-```bash
-['139 - audio only (DASH audio)', '140 - audio only (tiny)', '251 - audio only (tiny)', '278 - 256x144 (DASH video)', '160 - 256x144 (DASH video)', '242 - 426x240 (DASH video)', '133 - 426x240 (DASH video)', '134 - 640x360 (360p)', '243 - 640x360 (DASH video)', '244 - 854x480 (DASH video)', '135 - 854x480 (DASH video)', '247 - 1280x720 (DASH video)', '136 - 1280x720 (DASH video)', '137 - 1920x1080 (1080p)', '248 - 1920x1080 (DASH video)', '18 - 640x360 (360p)', '22 - 1280x720 (720p)']
-```
-</details>
  
 ## Search Videos
  Search video Data
 ```python 
 from py_youtube import Search
-yt = Search("ln technical")
-print(yt.videos())
+videos = Search("ln technical").videos()
+print(videos)
 ```
 <details>
   <summary><b>Example Results</summary>
@@ -236,8 +196,8 @@ print(yt.videos())
 ## Search Limits Video 
 ```python 
 from py_youtube import Search ,Data 
-yt = Search("ln technical", limit = 3)
-print(yt.videos())
+videos = Search("ln technical", limit = 3).videos()
+print(videos)
 ```
 <details>
   <summary>Example Results</summary>

@@ -96,10 +96,6 @@ class Data:
       		return publish_date
       	except:
       		return None
-      
-      def tag(self):
-      	tag =re.findall("itag\":251,\"url\":\"(.+?)\",\"mimeType\"",self.source)
-      	return tag
       	
       
       # Get Views Of the Video
@@ -152,8 +148,17 @@ class Data:
       		return dislikes
       	except:
       		return None
+      
+      # Get YouTube Videos tag 		
+      def tags(self):
+      	try:
+      		tags = re.findall("\<meta name=\"keywords\" content=\"(.+?)\">",self.source)[0]
+      		return tags
+      	except:
+      		return None
       		
-      		
+      			
+      			
       #Get Subscriber of The video 		
       def subscriber(self):
       		try:
@@ -226,6 +231,14 @@ class Data:
       			sub = re.findall("subscriberCountText\":{\"accessibility\":{\"accessibilityData\":{\"label\":\"(.+?)\"}}", self.source)[0]  
       		except:
       			sub = None
+      		# kewords(tag)
+      	try:
+      		tags = re.findall("\<meta name=\"keywords\" content=\"(.+?)\">",self.source)[0]
+      	except:
+      		tags = None
+      		
+      		
+      			
       		
       	DATA = { 
       	             "id": id,
@@ -237,7 +250,8 @@ class Data:
       	             "publishdate": publish_date,
       	             "category": category,
       	             "channel_name": channelName,
-      	             "subscriber":sub
+      	             "subscriber":sub,
+      	             "keywords":tags      	             
       	        }
       	 
       	return DATA
